@@ -21,3 +21,6 @@ $ curl -s http://localhost:8080/management/health
 ```
 - [Postman Collection & Environment](./postman)를 import하여 Example 및 UAA API를 작동해볼 수 있습니다
 
+## 설계
+
+![](docs/class.svg)
