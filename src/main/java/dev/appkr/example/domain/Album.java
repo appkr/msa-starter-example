@@ -33,7 +33,7 @@ public class Album {
 
   private Instant published;
 
-  @ManyToOne @JoinColumn(name = "singer_id")
+  @ManyToOne //@JoinColumn(name = "singer_id")
   private Singer singer;
 
   @OneToMany(mappedBy = "album")

@@ -29,10 +29,10 @@ public class Song {
 
   private String playTime;
 
-  @ManyToOne @JoinColumn(name = "album_id")
+  @ManyToOne //@JoinColumn(name = "album_id")
   private Album album;
 
-  @ManyToOne @JoinColumn(name = "singer_id")
+  @ManyToOne //@JoinColumn(name = "singer_id")
   private Singer singer;
 
   @Builder
