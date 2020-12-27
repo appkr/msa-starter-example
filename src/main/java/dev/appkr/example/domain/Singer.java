@@ -1,5 +1,6 @@
 package dev.appkr.example.domain;
 
+import dev.appkr.example.api.model.SingerDto;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Entity;
@@ -37,6 +38,10 @@ public class Singer {
   @Builder
   private Singer(String name) {
     this.name = name;
+  }
+
+  public static Singer createFrom(SingerDto dto) {
+    return new Singer(dto.getName());
   }
 
   public void addAlbum(Album album) {
