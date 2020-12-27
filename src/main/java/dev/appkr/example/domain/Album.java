@@ -1,13 +1,16 @@
 package dev.appkr.example.domain;
 
+import dev.appkr.example.api.model.AlbumDto;
+import dev.appkr.example.config.Constants;
+import dev.appkr.example.support.Carbon;
 import java.time.Instant;
+import java.time.ZoneId;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -42,6 +45,13 @@ public class Album {
   @Builder
   public Album(String title) {
     this.title = title;
+  }
+
+  public static Album createFrom(AlbumDto dto) {
+    Album album = new Album(dto.getTitle());
+    final Instant published = Carbon.from(dto.getPublished(), ZoneId.of(Constants.TIMEZONE_SEOUL)).toInstant();
+    album.markPublished(published);
+    return album;
   }
 
   public void associateSinger(Singer singer) {
