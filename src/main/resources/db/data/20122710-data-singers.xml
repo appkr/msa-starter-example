@@ -7,23 +7,14 @@
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
     http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-3.8.xsd ">
 
-  <changeSet id="20122620" author="appkr">
-    <comment>create songs table</comment>
-
-    <createTable tableName="songs" remarks="">
-      <column name="id" type="bigint" autoIncrement="true">
-        <constraints primaryKey="true" nullable="false" primaryKeyName="PK_SONGS_ID"/>
-      </column>
-      <column name="album_id" type="bigint" remarks=""/>
-      <column name="singer_id" type="bigint" remarks=""/>
-      <column name="title" type="varchar(100)" remarks="">
-        <constraints nullable="false"/>
-      </column>
-      <column name="play_time" type="varchar(10)" remarks=""/>
-    </createTable>
+  <changeSet id="20122710" author="appkr" context="test,local">
+    <insert tableName="singers">
+      <column name="id" value="1"/>
+      <column name="name" value="김광석"/>
+    </insert>
 
     <rollback>
-      <dropTable tableName="songs"/>
+      <delete tableName="singers"/>
     </rollback>
   </changeSet>
 </databaseChangeLog>

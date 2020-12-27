@@ -1,5 +1,6 @@
 package dev.appkr.example.domain;
 
+import dev.appkr.example.api.model.SongDto;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -39,6 +40,10 @@ public class Song {
   private Song(String title, String playTime) {
     this.title = title;
     this.playTime = playTime;
+  }
+
+  public static Song createFrom(SongDto dto) {
+    return new Song(dto.getTitle(), dto.getPlayTime());
   }
 
   public void associateAlbum(Album album) {

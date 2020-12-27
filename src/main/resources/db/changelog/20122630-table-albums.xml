@@ -14,9 +14,7 @@
       <column name="id" type="bigint" autoIncrement="true">
         <constraints primaryKey="true" nullable="false" primaryKeyName="PK_ALBUMS_ID"/>
       </column>
-      <column name="singer_id" type="bigint" remarks="">
-        <constraints nullable="false"/>
-      </column>
+      <column name="singer_id" type="bigint" remarks=""/>
       <column name="title" type="varchar(100)" remarks="">
         <constraints nullable="false"/>
       </column>

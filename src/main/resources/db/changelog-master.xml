@@ -29,4 +29,7 @@ http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibas
   <include file="db/changelog/20122610-table-singers.xml"/>
   <include file="db/changelog/20122620-table-songs.xml"/>
   <include file="db/changelog/20122630-table-albums.xml"/>
+  <include file="db/data/20122710-data-singers.xml"/>
+  <include file="db/data/20122720-data-albums.xml"/>
+  <include file="db/data/20122730-data-songs.xml"/>
 </databaseChangeLog>
