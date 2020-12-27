@@ -12,9 +12,11 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.UUID;
 import lombok.ToString;
+import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
 @Table(name = "persistent_events")
+@DynamicUpdate
 @Getter
 @ToString
 @EqualsAndHashCode(of = "id")
@@ -58,6 +60,7 @@ public class PersistentEvent implements Serializable {
 
   public void markProduced() {
     this.status = PersistentEventStatus.PRODUCED;
+    this.producedAt = Instant.now();
   }
 
   public void markFailed() {
