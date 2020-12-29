@@ -3,6 +3,7 @@ package dev.appkr.example.api;
 import dev.appkr.example.api.model.AlbumDto;
 import dev.appkr.example.api.model.AlbumListDto;
 import dev.appkr.example.service.AlbumService;
+import dev.appkr.example.support.HeaderUtils;
 import dev.appkr.example.support.PaginationUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -28,9 +29,11 @@ public class AlbumApiDelegateImpl implements AlbumApiDelegate {
   }
 
   @Override
-  public ResponseEntity<Void> createAlbum(AlbumDto albumDto) {
-    service.createAlbum(albumDto);
-    return null;
+  public ResponseEntity<Void> createAlbum(AlbumDto req) {
+    final AlbumDto res = service.createAlbum(req);
+    return ResponseEntity
+        .created(HeaderUtils.uri(res.getAlbumId()))
+        .build();
   }
 
   @Override
