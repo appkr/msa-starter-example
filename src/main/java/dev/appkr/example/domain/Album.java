@@ -2,6 +2,7 @@ package dev.appkr.example.domain;
 
 import dev.appkr.example.api.model.AlbumDto;
 import dev.appkr.example.config.Constants;
+import dev.appkr.example.domain.event.AlbumCreated;
 import dev.appkr.example.support.Carbon;
 import java.time.Instant;
 import java.time.ZoneId;
@@ -20,6 +21,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.data.domain.AbstractAggregateRoot;
 
 @Entity
 @Table(name = "albums")
@@ -27,7 +29,7 @@ import lombok.ToString;
 @EqualsAndHashCode(of = {"id"})
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Album {
+public class Album extends AbstractAggregateRoot<Album> {
 
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -45,6 +47,7 @@ public class Album {
   @Builder
   public Album(String title) {
     this.title = title;
+    this.registerEvent(new AlbumCreated(this));
   }
 
   public static Album createFrom(AlbumDto dto) {

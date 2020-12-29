@@ -10,6 +10,7 @@ import dev.appkr.example.api.model.AlbumDto;
 import dev.appkr.example.domain.Album;
 import dev.appkr.example.repository.AlbumRepository;
 import dev.appkr.example.repository.PersistentEventRepository;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,6 +27,8 @@ class PersistentEventCreatorTest {
   @MockBean private AlbumRepository mockAlbumRepository;
   @MockBean private PersistentEventRepository mockPersistentEventRepository;
 
+  @Disabled("Not valid any more "
+      + "from 'refactored domain events using AbstractAggregateRoot and EventListeners' commit on")
   @DisplayName("when new Album is created"
       + " then a PersitentEvent should be created too")
   @Test
