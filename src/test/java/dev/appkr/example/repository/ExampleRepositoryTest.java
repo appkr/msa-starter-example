@@ -4,7 +4,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import dev.appkr.example.domain.Example;
+import dev.appkr.example.domain.Example_;
 import dev.appkr.example.repository.spec.SpecificationBuilder;
+import dev.appkr.example.service.dto.SearchCriteria.Operator;
 import dev.appkr.example.support.PaginationUtils;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
@@ -47,7 +49,7 @@ class ExampleRepositoryTest {
   public void testSpecification() {
     // when
     SpecificationBuilder<Example> builder = new SpecificationBuilder<>();
-    final Specification<Example> spec = builder.with("title", "like", "original").build();
+    final Specification<Example> spec = builder.with(Example_.TITLE, Operator.LIKE, "original").build();
     final Page<Example> page = repository.findAll(spec, PaginationUtils.getPageable());
 
     // then
