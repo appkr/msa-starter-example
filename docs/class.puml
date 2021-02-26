@@ -6,8 +6,7 @@ class Album {}
 
 class Song {}
 
-Singer o-down- Album
-Singer o-down- Song
+Singer o- Album
 Album o- Song
 
 @enduml
