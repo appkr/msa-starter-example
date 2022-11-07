@@ -1,4 +1,27 @@
-# example
+# msa-starter-example
+
+## 설계
+
+![](docs/class.svg)
+
+## 실행
+
+```bash
+# MySQL, Kafka 실행
+~/msa-starter-example $ ./gradlew up
+
+# JhipsterUaa 실행
+~/jhipster-uaa $ ./gradlew clean bootRun
+
+# Application 실행
+~/msa-starter-example $ ./gradlew clean bootRun
+```
+
+## 포스트맨 컬렉션 & 환경
+
+[postman](postman/)
+
+---
 
 ## 개발 환경
 
@@ -8,7 +31,6 @@ $ brew install homebrew/cask-versions/corretto17 --cask
 $ jenv add /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home
 $ jenv versions
 ```
-
 
 - 아래 명령으로 MySQL(3306), Kafka(9092), jhipster-uaa(9999) 등을 구동합니다
 ```shell
@@ -40,9 +62,7 @@ mysql|root|secret
 ~/example $ ./gradlew dependencyUpdates
 ```
 
-
 ## 클라이언트 SDK 빌드 및 배포
-
 
 ```shell
 ~/example $ ./gradlew redoc

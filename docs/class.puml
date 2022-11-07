@@ -1,0 +1,12 @@
+@startuml
+
+class Singer {}
+
+class Album {}
+
+class Song {}
+
+Singer o- Album
+Album o- Song
+
+@enduml
