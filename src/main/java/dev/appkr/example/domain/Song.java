@@ -36,7 +36,7 @@ public class Song {
   private Singer singer;
 
   @Builder
-  private Song(String title, String playTime) {
+  public Song(String title, String playTime) {
     this.title = title;
     this.playTime = playTime;
   }

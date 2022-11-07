@@ -1,5 +1,6 @@
 package dev.appkr.example.adapter.in.rest;
 
+import dev.appkr.example.domain.Song;
 import dev.appkr.example.rest.AlbumDetailDto;
 import dev.appkr.example.rest.AlbumDto;
 import dev.appkr.example.rest.SingerDto;
@@ -46,5 +47,9 @@ public class Fixtures {
         .songId(1L)
         .title("두바퀴로 가는 자동차")
         .playTime("03:20");
+  }
+
+  public static Song aSongEntity() {
+    return new Song("두바퀴로 가는 자동차", "03:20");
   }
 }
