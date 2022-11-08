@@ -22,10 +22,8 @@ public class AlbumTest {
 
     Song song = new Song("두 바퀴로 가는 자동차", "03:20");
     song.associateAlbum(album);
-    song.associateSinger(singer);
 
     assertEquals(singer, album.getSinger());
-    assertEquals(singer, song.getSinger());
     assertEquals(album, song.getAlbum());
 
     log.info("album {}", album);

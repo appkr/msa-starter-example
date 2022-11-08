@@ -1,6 +1,8 @@
 package dev.appkr.example.domain;
 
+import java.time.Instant;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,6 +13,11 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @Table(name = "songs")
@@ -18,6 +25,7 @@ import lombok.ToString;
 @EqualsAndHashCode(of = {"id"})
 @ToString(of = {"id", "title"})
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@EntityListeners(AuditingEntityListener.class)
 public class Song {
 
   @Id
@@ -31,8 +39,17 @@ public class Song {
   @ManyToOne
   private Album album;
 
-  @ManyToOne
-  private Singer singer;
+  @CreatedBy
+  private String createdBy;
+
+  @CreatedDate
+  private Instant createdAt = Instant.now();
+
+  @LastModifiedBy
+  private String updatedBy;
+
+  @LastModifiedDate
+  private Instant updatedAt = Instant.now();
 
   public Song(String title, String playTime) {
     this.title = title;
@@ -42,10 +59,5 @@ public class Song {
   public void associateAlbum(Album album) {
     this.album = album;
     album.addSong(this);
-  }
-
-  public void associateSinger(Singer singer) {
-    this.singer = singer;
-    singer.addSong(this);
   }
 }

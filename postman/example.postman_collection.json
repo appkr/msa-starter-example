@@ -1,0 +1,2570 @@
+{
+  "info": {
+    "_postman_id": "b12b5227-5986-49ab-86ef-bd2bd08252af",
+    "name": "example",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "albums",
+          "item": [
+            {
+              "name": "create Album",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/vnd.appkr.private.v1+json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "bearer {{accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"title\": \"이문세 5집\",\n    \"published\": \"1988-01-01T09:00:00+09:00\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/albums",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "albums"
+                  ]
+                },
+                "description": "Create an Album"
+              },
+              "response": [
+                {
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"title\": \"foo\",\n    \"albumId\": 1,\n    \"published\": \"2018-12-01T10:00:00Z\"\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://CKojYZBCSHHDehv.wpF+r4b+PkFiVVxsJT5s\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"in eiusmod voluptate amet nostrud\",\n \"fieldErrors\": [\n  {\n   \"field\": \"elit ex\",\n   \"message\": \"dolore aute\"\n  },\n  {\n   \"field\": \"velit mollit\",\n   \"message\": \"anim ipsum\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"title\": \"foo\",\n    \"albumId\": 1,\n    \"published\": \"2018-12-01T10:00:00Z\"\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"title\": \"foo\",\n    \"albumId\": 1,\n    \"published\": \"2018-12-01T10:00:00Z\"\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"title\": \"foo\",\n    \"albumId\": 1,\n    \"published\": \"2018-12-01T10:00:00Z\"\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"title\": \"foo\",\n    \"albumId\": 1,\n    \"published\": \"2018-12-01T10:00:00Z\"\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                }
+              ]
+            },
+            {
+              "name": "list Albums",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "bearer {{accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/albums?page=1&size=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "albums"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "size",
+                      "value": "10"
+                    }
+                  ]
+                },
+                "description": "List Albums"
+              },
+              "response": [
+                {
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums?page=1&size=10",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "key": "size",
+                          "value": "10"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums?page=1&size=10",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "key": "size",
+                          "value": "10"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums?page=1&size=10",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "key": "size",
+                          "value": "10"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums?page=1&size=10",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "key": "size",
+                          "value": "10"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Ok",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums?page=1&size=10",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "key": "size",
+                          "value": "10"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.appkr.private.v1+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"data\": [\n  {\n   \"title\": \"foo\",\n   \"albumId\": 1,\n   \"published\": \"2018-12-01T10:00:00Z\",\n   \"singer\": {\n    \"name\": \"foo\",\n    \"singerId\": 1\n   },\n   \"songs\": [\n    {\n     \"title\": \"foo\",\n     \"playTime\": \"03:20\",\n     \"songId\": 1\n    },\n    {\n     \"title\": \"foo\",\n     \"playTime\": \"03:20\",\n     \"songId\": 1\n    }\n   ]\n  },\n  {\n   \"title\": \"foo\",\n   \"albumId\": 1,\n   \"published\": \"2018-12-01T10:00:00Z\",\n   \"singer\": {\n    \"name\": \"foo\",\n    \"singerId\": 1\n   },\n   \"songs\": [\n    {\n     \"title\": \"foo\",\n     \"playTime\": \"03:20\",\n     \"songId\": 1\n    },\n    {\n     \"title\": \"foo\",\n     \"playTime\": \"03:20\",\n     \"songId\": 1\n    }\n   ]\n  }\n ],\n \"page\": {\n  \"size\": 20,\n  \"totalElements\": 100,\n  \"totalPages\": 5,\n  \"number\": 1\n }\n}"
+                }
+              ]
+            },
+            {
+              "name": "associate Song",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "bearer {{accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/albums/:albumId/songs/:songId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "albums",
+                    ":albumId",
+                    "songs",
+                    ":songId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "albumId",
+                      "value": "1",
+                      "type": "string",
+                      "description": "(Required) "
+                    },
+                    {
+                      "key": "songId",
+                      "value": "1",
+                      "type": "string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Add a song to an album"
+              },
+              "response": [
+                {
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums/:albumId/songs/:songId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums",
+                        ":albumId",
+                        "songs",
+                        ":songId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "albumId"
+                        },
+                        {
+                          "key": "songId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums/:albumId/songs/:songId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums",
+                        ":albumId",
+                        "songs",
+                        ":songId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "albumId"
+                        },
+                        {
+                          "key": "songId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "No Content",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums/:albumId/songs/:songId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums",
+                        ":albumId",
+                        "songs",
+                        ":songId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "albumId"
+                        },
+                        {
+                          "key": "songId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums/:albumId/songs/:songId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums",
+                        ":albumId",
+                        "songs",
+                        ":songId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "albumId"
+                        },
+                        {
+                          "key": "songId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums/:albumId/songs/:songId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums",
+                        ":albumId",
+                        "songs",
+                        ":songId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "albumId"
+                        },
+                        {
+                          "key": "songId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums/:albumId/songs/:songId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums",
+                        ":albumId",
+                        "songs",
+                        ":songId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "albumId"
+                        },
+                        {
+                          "key": "songId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                }
+              ]
+            },
+            {
+              "name": "associate Singer",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "bearer {{accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/albums/:albumId/singer/:singerId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "albums",
+                    ":albumId",
+                    "singer",
+                    ":singerId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "albumId",
+                      "value": "1",
+                      "type": "string",
+                      "description": "(Required) "
+                    },
+                    {
+                      "key": "singerId",
+                      "value": "1",
+                      "type": "string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Associate Singer to an Album"
+              },
+              "response": [
+                {
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums/:albumId/singer/:singerId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums",
+                        ":albumId",
+                        "singer",
+                        ":singerId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "albumId"
+                        },
+                        {
+                          "key": "singerId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums/:albumId/singer/:singerId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums",
+                        ":albumId",
+                        "singer",
+                        ":singerId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "albumId"
+                        },
+                        {
+                          "key": "singerId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums/:albumId/singer/:singerId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums",
+                        ":albumId",
+                        "singer",
+                        ":singerId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "albumId"
+                        },
+                        {
+                          "key": "singerId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums/:albumId/singer/:singerId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums",
+                        ":albumId",
+                        "singer",
+                        ":singerId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "albumId"
+                        },
+                        {
+                          "key": "singerId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums/:albumId/singer/:singerId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums",
+                        ":albumId",
+                        "singer",
+                        ":singerId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "albumId"
+                        },
+                        {
+                          "key": "singerId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "No Content",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/albums/:albumId/singer/:singerId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "albums",
+                        ":albumId",
+                        "singer",
+                        ":singerId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "albumId"
+                        },
+                        {
+                          "key": "singerId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "songs",
+          "item": [
+            {
+              "name": "create Song",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/vnd.appkr.private.v1+json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "bearer {{accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"title\": \"시를 위한 시\",\n    \"playTime\": \"03:56\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/songs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "songs"
+                  ]
+                },
+                "description": "Create a Song"
+              },
+              "response": [
+                {
+                  "name": "Created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"title\": \"foo\",\n    \"playTime\": \"03:20\",\n    \"songId\": 1\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/songs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "songs"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                },
+                {
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"title\": \"foo\",\n    \"playTime\": \"03:20\",\n    \"songId\": 1\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/songs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "songs"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"title\": \"foo\",\n    \"playTime\": \"03:20\",\n    \"songId\": 1\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/songs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "songs"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"title\": \"foo\",\n    \"playTime\": \"03:20\",\n    \"songId\": 1\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/songs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "songs"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"title\": \"foo\",\n    \"playTime\": \"03:20\",\n    \"songId\": 1\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/songs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "songs"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                }
+              ]
+            },
+            {
+              "name": "get Song",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "bearer {{accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/api/songs/:songId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "songs",
+                    ":songId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "songId",
+                      "value": "1",
+                      "type": "string",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Get Song"
+              },
+              "response": [
+                {
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/songs/:songId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "songs",
+                        ":songId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "songId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/songs/:songId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "songs",
+                        ":songId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "songId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/songs/:songId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "songs",
+                        ":songId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "songId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/songs/:songId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "songs",
+                        ":songId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "songId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Ok",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/songs/:songId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "songs",
+                        ":songId"
+                      ],
+                      "variable": [
+                        {
+                          "key": "songId"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/vnd.appkr.private.v1+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"title\": \"foo\",\n \"playTime\": \"03:20\",\n \"songId\": 1,\n \"singer\": {\n  \"name\": \"foo\",\n  \"singerId\": 1\n },\n \"album\": {\n  \"title\": \"foo\",\n  \"albumId\": 1,\n  \"published\": \"2018-12-01T10:00:00Z\"\n }\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "singers",
+          "item": [
+            {
+              "name": "create Singer",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/vnd.appkr.private.v1+json"
+                  },
+                  {
+                    "key": "Authorization",
+                    "value": "bearer {{accessToken}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"name\": \"이문세\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/singers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "singers"
+                  ]
+                },
+                "description": "Create a Singer"
+              },
+              "response": [
+                {
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"name\": \"foo\",\n    \"singerId\": 1\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/singers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "singers"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"name\": \"foo\",\n    \"singerId\": 1\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/singers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "singers"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"name\": \"foo\",\n    \"singerId\": 1\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/singers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "singers"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"name\": \"foo\",\n    \"singerId\": 1\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/singers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "singers"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/problem+json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n \"type\": \"http://KImo.vokkwKkce8TBaCfQd1kBZX5S6CK.1KAsUidk6bsq5YegddrtPwCuHHoav.\",\n \"title\": \"제출한 요청이 유효하지 않습니다\",\n \"detail\": \"incididunt cillum dolor in\",\n \"fieldErrors\": [\n  {\n   \"field\": \"occaecat irure dolore sit est\",\n   \"message\": \"aliquip nisi\"\n  },\n  {\n   \"field\": \"proident id\",\n   \"message\": \"laboris elit enim\"\n  }\n ]\n}"
+                },
+                {
+                  "name": "Created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"name\": \"foo\",\n    \"singerId\": 1\n}"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/singers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "singers"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/plain"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "loginWithClientCredential",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const res = pm.response.json();",
+              "pm.environment.set('accessToken', res.access_token);",
+              "pm.environment.set('refreshToken', res.refresh_token);",
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const seed = CryptoJS.enc.Utf8.parse(pm.environment.get(\"clientId\") + \":\" + pm.environment.get(\"clientSecret\"));",
+              "const basicAuthString = CryptoJS.enc.Base64.stringify(seed);",
+              "pm.environment.set(\"basicAuthString\", basicAuthString);"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Basic  {{basicAuthString}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{authHost}}/oauth/token?grant_type=client_credentials",
+          "host": [
+            "{{authHost}}"
+          ],
+          "path": [
+            "oauth",
+            "token"
+          ],
+          "query": [
+            {
+              "key": "grant_type",
+              "value": "client_credentials"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "vroong_access_token",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Basic d2ViX2FwcDpjaGFuZ2VpdA=="
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://{{host}}/uaa/oauth/token?grant_type=refresh_token&refresh_token={{uaa_refresh_token}}",
+              "protocol": "https",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "uaa",
+                "oauth",
+                "token"
+              ],
+              "query": [
+                {
+                  "key": "grant_type",
+                  "value": "refresh_token"
+                },
+                {
+                  "key": "refresh_token",
+                  "value": "{{uaa_refresh_token}}"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate",
+              "name": "Cache-Control",
+              "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "name": "Connection",
+              "description": "Options that are desired for the connection"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "gzip",
+              "name": "Content-Encoding",
+              "description": "The type of encoding used on the data."
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json;charset=UTF-8",
+              "name": "Content-Type",
+              "description": "The mime type of this content"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 27 Jun 2018 10:19:42 GMT",
+              "name": "Date",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "key": "Expires",
+              "value": "0",
+              "name": "Expires",
+              "description": "Gives the date/time after which the response is considered stale"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache",
+              "name": "Pragma",
+              "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff",
+              "name": "X-Content-Type-Options",
+              "description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "1; mode=block",
+              "name": "X-XSS-Protection",
+              "description": "Cross-site scripting (XSS) filter"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "name": "transfer-encoding",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            }
+          ],
+          "cookie": [],
+          "body": "{\"access_token\":\"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzAwOTUwODIsImlhdCI6MTUzMDA5NDc4MiwidXNlcl9uYW1lIjoiNWY5OGViZjEtNTBkNy00ZDIzLTllMTctOTdlYjhmNDc5NTcwIiwianRpIjoiYzFhYzQ5ZTktZDk1NC00NTIwLThlZGItNzE4MThhZTlmZjAzIiwiY2xpZW50X2lkIjoid2ViX2FwcCIsInNjb3BlIjpbIm9wZW5pZCJdfQ.G72LrQlu3BFAimHj7Gr_ry6gjTRLyomMSSUXMohkiFv6x2WdW86V7X9mhn1aDJY2jV1g81DqAIJmAtRShgyQDTSP9rGvRijOorwY0D4-hGA0nq4kgQbVHrum60Z6ZaJq8kvHV0XAJgdrAZ2zCTSXVgJKfKPq2ouoq65hBabSf_6Jt2XuokzFwj4Y35tyO4SwMD8RTAVY0CJfsNhXxSgrLwi9S1aYzgq866NN6jb93IPuII__DqAoobDNCVwFYgJb_SfmGVIxmqsyd1r3wP9SzjeSiy1eEcUh-ADftixSfjiV7GrMyXcYG7Kepn9wGXzgR07AAdy4OHqVQwOngV8-xg\",\"token_type\":\"bearer\",\"refresh_token\":\"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiI1Zjk4ZWJmMS01MGQ3LTRkMjMtOWUxNy05N2ViOGY0Nzk1NzAiLCJzY29wZSI6WyJvcGVuaWQiXSwiYXRpIjoiYzFhYzQ5ZTktZDk1NC00NTIwLThlZGItNzE4MThhZTlmZjAzIiwiZXhwIjoxNTMwNjk5NTgyLCJpYXQiOjE1MzAwOTQ3ODIsImp0aSI6IjU3ZTcxNzVmLWExMzEtNGQ0Ny04M2MyLWEyMWFkYTdkOTk1NyIsImNsaWVudF9pZCI6IndlYl9hcHAifQ.SooMvUIGNUKoFqw2RgemseXefc4r0hZaowjniZriNe-Lk4Jv8Z33Ss6SCWth1oMJwjMQ-EYTZSipboaMjEVDhmdMFJq829qTRnKfERojNR6K4sO42SQer1U506-asJSgvVwLnQ-tJCwlzJnXjLPwqlLohN4LQ_wnwNWejGCC6_H-temUqrfYwACweROl_36-skHSLuXD4YjcwXQbbqR5PeOWMyaE2PhUfGhPD7A2HhgMX0OP0gUWIzmf64Vlj1B61SkAjOVAU3vNNVfHYiQSHS9f98F8xnObTWv3c1gN87UB93MNBImyq6Whgi3LVKCCJYv-uyBIfazjP_vlXe14fg\",\"expires_in\":299,\"scope\":\"openid\",\"iat\":1530094782,\"jti\":\"c1ac49e9-d954-4520-8edb-71818ae9ff03\"}"
+        },
+        {
+          "name": "Unauthorized",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Basic d2ViX2FwcDpjaGFuZ2VpdA=="
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://{{host}}/uaa/oauth/token?grant_type=refresh_token&refresh_token={{uaa_refresh_token}}",
+              "protocol": "https",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "uaa",
+                "oauth",
+                "token"
+              ],
+              "query": [
+                {
+                  "key": "grant_type",
+                  "value": "refresh_token"
+                },
+                {
+                  "key": "refresh_token",
+                  "value": "{{uaa_refresh_token}}"
+                }
+              ]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate",
+              "name": "Cache-Control",
+              "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "name": "Connection",
+              "description": "Options that are desired for the connection"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "gzip",
+              "name": "Content-Encoding",
+              "description": "The type of encoding used on the data."
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json;charset=UTF-8",
+              "name": "Content-Type",
+              "description": "The mime type of this content"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 27 Jun 2018 08:59:15 GMT",
+              "name": "Date",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "key": "Expires",
+              "value": "0",
+              "name": "Expires",
+              "description": "Gives the date/time after which the response is considered stale"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache",
+              "name": "Pragma",
+              "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+            },
+            {
+              "key": "WWW-Authenticate",
+              "value": "Bearer error=\"unauthorized\", error_description=\"User a771b8a5-6d63-4a99-8c2f-f2b76393be59 was not found in the database\"",
+              "name": "WWW-Authenticate",
+              "description": "Indicates the authentication scheme that should be used to access the requested entity."
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff",
+              "name": "X-Content-Type-Options",
+              "description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "1; mode=block",
+              "name": "X-XSS-Protection",
+              "description": "Cross-site scripting (XSS) filter"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "name": "transfer-encoding",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            }
+          ],
+          "cookie": [],
+          "body": "{\"error\":\"unauthorized\",\"error_description\":\"User a771b8a5-6d63-4a99-8c2f-f2b76393be59 was not found in the database\"}"
+        }
+      ]
+    },
+    {
+      "name": "health",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// Functions",
+              "",
+              "/**",
+              " * Calculate basicAuthString",
+              " */",
+              "function basicAuthString() {",
+              "    let seed = CryptoJS.enc.Utf8.parse(pm.environment.get(\"client_id\") + \":\" + pm.environment.get(\"client_secret\"));",
+              "    return CryptoJS.enc.Base64.stringify(seed);",
+              "}",
+              "",
+              "/**",
+              " * Generate an UUID v4",
+              " * @see https://noritersand.github.io/javascript/2019/04/19/javascript-uuid-%EC%83%9D%EC%84%B1-%ED%95%A8%EC%88%98/",
+              " */",
+              "function uuidv4() {",
+              "  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {",
+              "    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);",
+              "    return v.toString(16);",
+              "  });",
+              "}",
+              "",
+              "/**",
+              " * Calculate date value fo today",
+              " * @var diff: int days to plus or minus",
+              " * @return string e.g. \"2020-01-01\"",
+              " */",
+              "function today(diff) {",
+              "    diff = parseInt(diff);",
+              "    loop = Math.abs(diff);",
+              "    let now = new Date();",
+              "    if (diff !== undefined || diff !== 0) {",
+              "        for (i = 0; i < loop; i++) {",
+              "            (diff > 0) ",
+              "                ? now.setDate(now.getDate() + 1) ",
+              "                : now.setDate(now.getDate() - 1);",
+              "        }",
+              "    }",
+              "    return now;",
+              "}",
+              "",
+              "/**",
+              " * Generate random string",
+              " * ",
+              " * @var len: int length of string",
+              " */",
+              "function randomString(len) {",
+              "    return Math.random().toString(36).substring(len);",
+              "}",
+              "",
+              "/**",
+              " * Generate random number",
+              " * @return int",
+              " */",
+              "function randomNumber() {",
+              "    return parseInt(Math.random() * 100000);",
+              "}",
+              "",
+              "/**",
+              " * Calculate random double",
+              " * ",
+              " * min: int",
+              " * max: int",
+              " */",
+              "function randomInRange(min, max) {",
+              "    return Math.random() < 0.5 ",
+              "        ? ((1-Math.random()) * (max-min) + min).toFixed(2) ",
+              "        : (Math.random() * (max-min) + min).toFixed(2);",
+              "}",
+              "",
+              "/**",
+              " * Generate random location",
+              " * @return object {",
+              " *   @var lat: double ",
+              " *   @var lng: double",
+              " * }",
+              " */",
+              "function randomLocation() {",
+              "    return {",
+              "        lat: (Math.random() * (36.0 - 38.0) + 36.0).toFixed(6),",
+              "        lng: (Math.random() * (126.0 - 128.0) + 126.0).toFixed(6)",
+              "    };",
+              "}",
+              "",
+              "// Declarations",
+              "",
+              "const address = {",
+              "    postalCode: \"06193\",",
+              "    baseAddress: \"서울 강남구 테헤란로 418\",",
+              "    detailedAddress: \"13층\",",
+              "    roadAddress: null,",
+              "    jibunAddress: null,",
+              "    lat: \"37.50510340\",",
+              "    lng: \"127.05224580\"",
+              "};",
+              "",
+              "pm.environment.set('address', JSON.stringify(address));",
+              "pm.environment.set('randomDouble', randomInRange(1, 10));",
+              "pm.environment.set(\"basicAuthString\", basicAuthString());",
+              "pm.environment.set(\"uuid\", uuidv4());",
+              "pm.environment.set('now', new Date().toISOString());",
+              "pm.environment.set('today', today().toISOString().slice(0,10));",
+              "pm.environment.set('yesterday', today(-1).toISOString().slice(0,10));",
+              "pm.environment.set('dayBeforeYesterday', today(-2).toISOString().slice(0,10));",
+              "pm.environment.set('randomString', randomString(7));",
+              "pm.environment.set('randomDeviceId', randomString(16));",
+              "pm.environment.set('randomFcmRegistrationId', randomString(16).toString(36).repeat(5));",
+              "pm.environment.set('randomNumber', randomNumber());",
+              "pm.environment.set('randomLat', randomLocation().lat);",
+              "pm.environment.set('randomLng', randomLocation().lng);",
+              "pm.environment.set('baseAddress', address.baseAddress);",
+              "pm.environment.set('detailedAddress', address.detailedAddress);",
+              ""
+            ]
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{baseUrl}}/management/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "management",
+            "health"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "UaaAccessToken",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Basic d2ViX2FwcDpjaGFuZ2VpdA=="
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://{{host}}/uaa/oauth/token?grant_type=refresh_token&refresh_token={{uaa_refresh_token}}",
+              "protocol": "https",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "uaa",
+                "oauth",
+                "token"
+              ],
+              "query": [
+                {
+                  "key": "grant_type",
+                  "value": "refresh_token"
+                },
+                {
+                  "key": "refresh_token",
+                  "value": "{{uaa_refresh_token}}"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate",
+              "name": "Cache-Control",
+              "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "name": "Connection",
+              "description": "Options that are desired for the connection"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "gzip",
+              "name": "Content-Encoding",
+              "description": "The type of encoding used on the data."
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json;charset=UTF-8",
+              "name": "Content-Type",
+              "description": "The mime type of this content"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 27 Jun 2018 10:19:42 GMT",
+              "name": "Date",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "key": "Expires",
+              "value": "0",
+              "name": "Expires",
+              "description": "Gives the date/time after which the response is considered stale"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache",
+              "name": "Pragma",
+              "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff",
+              "name": "X-Content-Type-Options",
+              "description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "1; mode=block",
+              "name": "X-XSS-Protection",
+              "description": "Cross-site scripting (XSS) filter"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "name": "transfer-encoding",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            }
+          ],
+          "cookie": [],
+          "body": "{\"access_token\":\"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzAwOTUwODIsImlhdCI6MTUzMDA5NDc4MiwidXNlcl9uYW1lIjoiNWY5OGViZjEtNTBkNy00ZDIzLTllMTctOTdlYjhmNDc5NTcwIiwianRpIjoiYzFhYzQ5ZTktZDk1NC00NTIwLThlZGItNzE4MThhZTlmZjAzIiwiY2xpZW50X2lkIjoid2ViX2FwcCIsInNjb3BlIjpbIm9wZW5pZCJdfQ.G72LrQlu3BFAimHj7Gr_ry6gjTRLyomMSSUXMohkiFv6x2WdW86V7X9mhn1aDJY2jV1g81DqAIJmAtRShgyQDTSP9rGvRijOorwY0D4-hGA0nq4kgQbVHrum60Z6ZaJq8kvHV0XAJgdrAZ2zCTSXVgJKfKPq2ouoq65hBabSf_6Jt2XuokzFwj4Y35tyO4SwMD8RTAVY0CJfsNhXxSgrLwi9S1aYzgq866NN6jb93IPuII__DqAoobDNCVwFYgJb_SfmGVIxmqsyd1r3wP9SzjeSiy1eEcUh-ADftixSfjiV7GrMyXcYG7Kepn9wGXzgR07AAdy4OHqVQwOngV8-xg\",\"token_type\":\"bearer\",\"refresh_token\":\"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiI1Zjk4ZWJmMS01MGQ3LTRkMjMtOWUxNy05N2ViOGY0Nzk1NzAiLCJzY29wZSI6WyJvcGVuaWQiXSwiYXRpIjoiYzFhYzQ5ZTktZDk1NC00NTIwLThlZGItNzE4MThhZTlmZjAzIiwiZXhwIjoxNTMwNjk5NTgyLCJpYXQiOjE1MzAwOTQ3ODIsImp0aSI6IjU3ZTcxNzVmLWExMzEtNGQ0Ny04M2MyLWEyMWFkYTdkOTk1NyIsImNsaWVudF9pZCI6IndlYl9hcHAifQ.SooMvUIGNUKoFqw2RgemseXefc4r0hZaowjniZriNe-Lk4Jv8Z33Ss6SCWth1oMJwjMQ-EYTZSipboaMjEVDhmdMFJq829qTRnKfERojNR6K4sO42SQer1U506-asJSgvVwLnQ-tJCwlzJnXjLPwqlLohN4LQ_wnwNWejGCC6_H-temUqrfYwACweROl_36-skHSLuXD4YjcwXQbbqR5PeOWMyaE2PhUfGhPD7A2HhgMX0OP0gUWIzmf64Vlj1B61SkAjOVAU3vNNVfHYiQSHS9f98F8xnObTWv3c1gN87UB93MNBImyq6Whgi3LVKCCJYv-uyBIfazjP_vlXe14fg\",\"expires_in\":299,\"scope\":\"openid\",\"iat\":1530094782,\"jti\":\"c1ac49e9-d954-4520-8edb-71818ae9ff03\"}"
+        },
+        {
+          "name": "Unauthorized",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Basic d2ViX2FwcDpjaGFuZ2VpdA=="
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://{{host}}/uaa/oauth/token?grant_type=refresh_token&refresh_token={{uaa_refresh_token}}",
+              "protocol": "https",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "uaa",
+                "oauth",
+                "token"
+              ],
+              "query": [
+                {
+                  "key": "grant_type",
+                  "value": "refresh_token"
+                },
+                {
+                  "key": "refresh_token",
+                  "value": "{{uaa_refresh_token}}"
+                }
+              ]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate",
+              "name": "Cache-Control",
+              "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "name": "Connection",
+              "description": "Options that are desired for the connection"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "gzip",
+              "name": "Content-Encoding",
+              "description": "The type of encoding used on the data."
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json;charset=UTF-8",
+              "name": "Content-Type",
+              "description": "The mime type of this content"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 27 Jun 2018 08:59:15 GMT",
+              "name": "Date",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "key": "Expires",
+              "value": "0",
+              "name": "Expires",
+              "description": "Gives the date/time after which the response is considered stale"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache",
+              "name": "Pragma",
+              "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+            },
+            {
+              "key": "WWW-Authenticate",
+              "value": "Bearer error=\"unauthorized\", error_description=\"User a771b8a5-6d63-4a99-8c2f-f2b76393be59 was not found in the database\"",
+              "name": "WWW-Authenticate",
+              "description": "Indicates the authentication scheme that should be used to access the requested entity."
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff",
+              "name": "X-Content-Type-Options",
+              "description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "1; mode=block",
+              "name": "X-XSS-Protection",
+              "description": "Cross-site scripting (XSS) filter"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "name": "transfer-encoding",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            }
+          ],
+          "cookie": [],
+          "body": "{\"error\":\"unauthorized\",\"error_description\":\"User a771b8a5-6d63-4a99-8c2f-f2b76393be59 was not found in the database\"}"
+        }
+      ]
+    },
+    {
+      "name": "info",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{baseUrl}}/management/info",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "management",
+            "info"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "UaaAccessToken",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Basic d2ViX2FwcDpjaGFuZ2VpdA=="
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://{{host}}/uaa/oauth/token?grant_type=refresh_token&refresh_token={{uaa_refresh_token}}",
+              "protocol": "https",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "uaa",
+                "oauth",
+                "token"
+              ],
+              "query": [
+                {
+                  "key": "grant_type",
+                  "value": "refresh_token"
+                },
+                {
+                  "key": "refresh_token",
+                  "value": "{{uaa_refresh_token}}"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate",
+              "name": "Cache-Control",
+              "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "name": "Connection",
+              "description": "Options that are desired for the connection"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "gzip",
+              "name": "Content-Encoding",
+              "description": "The type of encoding used on the data."
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json;charset=UTF-8",
+              "name": "Content-Type",
+              "description": "The mime type of this content"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 27 Jun 2018 10:19:42 GMT",
+              "name": "Date",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "key": "Expires",
+              "value": "0",
+              "name": "Expires",
+              "description": "Gives the date/time after which the response is considered stale"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache",
+              "name": "Pragma",
+              "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff",
+              "name": "X-Content-Type-Options",
+              "description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "1; mode=block",
+              "name": "X-XSS-Protection",
+              "description": "Cross-site scripting (XSS) filter"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "name": "transfer-encoding",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            }
+          ],
+          "cookie": [],
+          "body": "{\"access_token\":\"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1MzAwOTUwODIsImlhdCI6MTUzMDA5NDc4MiwidXNlcl9uYW1lIjoiNWY5OGViZjEtNTBkNy00ZDIzLTllMTctOTdlYjhmNDc5NTcwIiwianRpIjoiYzFhYzQ5ZTktZDk1NC00NTIwLThlZGItNzE4MThhZTlmZjAzIiwiY2xpZW50X2lkIjoid2ViX2FwcCIsInNjb3BlIjpbIm9wZW5pZCJdfQ.G72LrQlu3BFAimHj7Gr_ry6gjTRLyomMSSUXMohkiFv6x2WdW86V7X9mhn1aDJY2jV1g81DqAIJmAtRShgyQDTSP9rGvRijOorwY0D4-hGA0nq4kgQbVHrum60Z6ZaJq8kvHV0XAJgdrAZ2zCTSXVgJKfKPq2ouoq65hBabSf_6Jt2XuokzFwj4Y35tyO4SwMD8RTAVY0CJfsNhXxSgrLwi9S1aYzgq866NN6jb93IPuII__DqAoobDNCVwFYgJb_SfmGVIxmqsyd1r3wP9SzjeSiy1eEcUh-ADftixSfjiV7GrMyXcYG7Kepn9wGXzgR07AAdy4OHqVQwOngV8-xg\",\"token_type\":\"bearer\",\"refresh_token\":\"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiI1Zjk4ZWJmMS01MGQ3LTRkMjMtOWUxNy05N2ViOGY0Nzk1NzAiLCJzY29wZSI6WyJvcGVuaWQiXSwiYXRpIjoiYzFhYzQ5ZTktZDk1NC00NTIwLThlZGItNzE4MThhZTlmZjAzIiwiZXhwIjoxNTMwNjk5NTgyLCJpYXQiOjE1MzAwOTQ3ODIsImp0aSI6IjU3ZTcxNzVmLWExMzEtNGQ0Ny04M2MyLWEyMWFkYTdkOTk1NyIsImNsaWVudF9pZCI6IndlYl9hcHAifQ.SooMvUIGNUKoFqw2RgemseXefc4r0hZaowjniZriNe-Lk4Jv8Z33Ss6SCWth1oMJwjMQ-EYTZSipboaMjEVDhmdMFJq829qTRnKfERojNR6K4sO42SQer1U506-asJSgvVwLnQ-tJCwlzJnXjLPwqlLohN4LQ_wnwNWejGCC6_H-temUqrfYwACweROl_36-skHSLuXD4YjcwXQbbqR5PeOWMyaE2PhUfGhPD7A2HhgMX0OP0gUWIzmf64Vlj1B61SkAjOVAU3vNNVfHYiQSHS9f98F8xnObTWv3c1gN87UB93MNBImyq6Whgi3LVKCCJYv-uyBIfazjP_vlXe14fg\",\"expires_in\":299,\"scope\":\"openid\",\"iat\":1530094782,\"jti\":\"c1ac49e9-d954-4520-8edb-71818ae9ff03\"}"
+        },
+        {
+          "name": "Unauthorized",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Basic d2ViX2FwcDpjaGFuZ2VpdA=="
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "https://{{host}}/uaa/oauth/token?grant_type=refresh_token&refresh_token={{uaa_refresh_token}}",
+              "protocol": "https",
+              "host": [
+                "{{host}}"
+              ],
+              "path": [
+                "uaa",
+                "oauth",
+                "token"
+              ],
+              "query": [
+                {
+                  "key": "grant_type",
+                  "value": "refresh_token"
+                },
+                {
+                  "key": "refresh_token",
+                  "value": "{{uaa_refresh_token}}"
+                }
+              ]
+            }
+          },
+          "status": "Unauthorized",
+          "code": 401,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Cache-Control",
+              "value": "no-cache, no-store, max-age=0, must-revalidate",
+              "name": "Cache-Control",
+              "description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "name": "Connection",
+              "description": "Options that are desired for the connection"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "gzip",
+              "name": "Content-Encoding",
+              "description": "The type of encoding used on the data."
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json;charset=UTF-8",
+              "name": "Content-Type",
+              "description": "The mime type of this content"
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 27 Jun 2018 08:59:15 GMT",
+              "name": "Date",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "key": "Expires",
+              "value": "0",
+              "name": "Expires",
+              "description": "Gives the date/time after which the response is considered stale"
+            },
+            {
+              "key": "Pragma",
+              "value": "no-cache",
+              "name": "Pragma",
+              "description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+            },
+            {
+              "key": "WWW-Authenticate",
+              "value": "Bearer error=\"unauthorized\", error_description=\"User a771b8a5-6d63-4a99-8c2f-f2b76393be59 was not found in the database\"",
+              "name": "WWW-Authenticate",
+              "description": "Indicates the authentication scheme that should be used to access the requested entity."
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff",
+              "name": "X-Content-Type-Options",
+              "description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "1; mode=block",
+              "name": "X-XSS-Protection",
+              "description": "Cross-site scripting (XSS) filter"
+            },
+            {
+              "key": "transfer-encoding",
+              "value": "chunked",
+              "name": "transfer-encoding",
+              "description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+            }
+          ],
+          "cookie": [],
+          "body": "{\"error\":\"unauthorized\",\"error_description\":\"User a771b8a5-6d63-4a99-8c2f-f2b76393be59 was not found in the database\"}"
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "string"
+    }
+  ]
+}

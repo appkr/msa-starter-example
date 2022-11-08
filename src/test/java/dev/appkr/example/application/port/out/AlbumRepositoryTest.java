@@ -35,7 +35,6 @@ class AlbumRepositoryTest {
 
     final Song song = new Song("두 바퀴로 가는 자동차", "03:20");
     song.associateAlbum(album);
-    song.associateSinger(singer);
     songRepository.saveAndFlush(song);
 
     albumRepository

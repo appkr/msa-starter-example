@@ -3,6 +3,7 @@ package dev.appkr.example.domain;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +14,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @Table(name = "singers")
@@ -20,6 +22,7 @@ import lombok.ToString;
 @EqualsAndHashCode(of = {"id"})
 @ToString(of = {"id", "name"})
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@EntityListeners(AuditingEntityListener.class)
 public class Singer {
 
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,9 +33,6 @@ public class Singer {
   @OneToMany(mappedBy = "singer")
   private Set<Album> albums = new HashSet<>();
 
-  @OneToMany(mappedBy = "singer")
-  private Set<Song> songs = new HashSet<>();
-
   public Singer(String name) {
     this.name = name;
   }
@@ -40,12 +40,6 @@ public class Singer {
   public void addAlbum(Album album) {
     if (!this.albums.contains(album)) {
       this.albums.add(album);
-    }
-  }
-
-  public void addSong(Song song) {
-    if (!this.songs.contains(song)) {
-      this.songs.add(song);
     }
   }
 }

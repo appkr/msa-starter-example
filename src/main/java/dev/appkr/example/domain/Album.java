@@ -8,6 +8,8 @@ import java.time.ZoneId;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,6 +21,11 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @Table(name = "albums")
@@ -26,6 +33,7 @@ import lombok.ToString;
 @EqualsAndHashCode(of = {"id"})
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@EntityListeners(AuditingEntityListener.class)
 public class Album {
 
   @Id
@@ -39,8 +47,20 @@ public class Album {
   @ManyToOne
   private Singer singer;
 
-  @OneToMany(mappedBy = "album")
+  @OneToMany(mappedBy = "album", fetch = FetchType.EAGER)
   private Set<Song> songs = new HashSet<>();
+
+  @CreatedBy
+  private String createdBy;
+
+  @CreatedDate
+  private Instant createdAt = Instant.now();
+
+  @LastModifiedBy
+  private String updatedBy;
+
+  @LastModifiedDate
+  private Instant updatedAt = Instant.now();
 
   public Album(String title, OffsetDateTime publishedDate) {
     this.title = title;

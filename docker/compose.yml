@@ -35,7 +35,7 @@ services:
       KAFKA_CREATE_TOPICS: "local-example-output:1:1"
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_LISTENERS: PLAINTEXT://:9092
+      KAFKA_LISTENERS: PLAINTEXT://kafka:9092
     ports:
       - 9092:9092
     healthcheck:

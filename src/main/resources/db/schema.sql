@@ -30,8 +30,9 @@ CREATE TABLE IF NOT EXISTS singers
 CREATE TABLE IF NOT EXISTS albums
 (
     id         bigint(20) NOT NULL AUTO_INCREMENT,
-    singer_id  bigint(20) NOT NULL,
+    singer_id  bigint(20) DEFAULT NULL,
     title      varchar(120) NOT NULL,
+    published  timestamp    NOT NULL,
     created_by varchar(40)  NOT NULL,
     created_at timestamp    NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_by varchar(40)  NOT NULL,
@@ -42,8 +43,9 @@ CREATE TABLE IF NOT EXISTS albums
 CREATE TABLE IF NOT EXISTS songs
 (
     id         bigint(20) NOT NULL AUTO_INCREMENT,
-    album_id   bigint(20) NOT NULL,
+    album_id   bigint(20) DEFAULT NULL,
     title      varchar(120) NOT NULL,
+    play_time  varchar(20)  NOT NULL,
     created_by varchar(40)  NOT NULL,
     created_at timestamp    NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_by varchar(40)  NOT NULL,
