@@ -18,6 +18,7 @@ public class AlbumService {
   private final AlbumRepository albumRepository;
   private final SongRepository songRepository;
   private final SingerRepository singerRepository;
+  private final PersistentEventCreator eventCreator;
 
   @Transactional
   public void associateSinger(Long albumId, Long singerId) {
@@ -40,6 +41,8 @@ public class AlbumService {
   @Transactional
   public Album createAlbum(AlbumDto dto) {
     final Album entity = new Album(dto.getTitle(), dto.getPublished());
+    eventCreator.create("ALBUM_CREATED", entity);
+
     return albumRepository.save(entity);
   }
 
