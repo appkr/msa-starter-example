@@ -1,5 +1,6 @@
 package dev.appkr.example.adapter.in.rest;
 
+import dev.appkr.example.domain.Album;
 import dev.appkr.example.domain.Singer;
 import dev.appkr.example.domain.Song;
 import dev.appkr.example.rest.AlbumDetailDto;
@@ -26,6 +27,10 @@ public class Fixtures {
         .albumId(1L)
         .title("다시 부르기")
         .published(OffsetDateTime.parse("1993-03-01T09:00:00+09:00"));
+  }
+
+  public static Album anAlbumEntity() {
+    return new Album("다시 부르기", OffsetDateTime.parse("1993-03-01T09:00:00+09:00"));
   }
 
   public static SingerDto aSingerDto() {

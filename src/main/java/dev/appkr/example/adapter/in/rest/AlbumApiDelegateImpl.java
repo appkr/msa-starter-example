@@ -1,38 +1,60 @@
 package dev.appkr.example.adapter.in.rest;
 
+import dev.appkr.example.adapter.in.rest.mapper.AlbumMapper;
+import dev.appkr.example.application.AlbumService;
+import dev.appkr.example.domain.Album;
 import dev.appkr.example.rest.AlbumApiDelegate;
+import dev.appkr.example.rest.AlbumDetailDto;
 import dev.appkr.example.rest.AlbumDto;
 import dev.appkr.example.rest.AlbumListDto;
 import dev.appkr.example.rest.PageDto;
-import java.util.Collections;
+import java.util.List;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class AlbumApiDelegateImpl implements AlbumApiDelegate {
+
+  private final AlbumService service;
+  private final AlbumMapper mapper;
 
   @Override
   public ResponseEntity<Void> associateSinger(Long albumId, Long singerId) {
-    return null;
+    service.associateSinger(albumId, singerId);
+    return ResponseEntity.noContent().build();
   }
 
   @Override
   public ResponseEntity<Void> associateSong(Long albumId, Long songId) {
-    return null;
+    service.associateSong(albumId, songId);
+    return ResponseEntity.noContent().build();
   }
 
   @Override
   public ResponseEntity<Void> createAlbum(AlbumDto albumDto) {
-    return null;
+    service.createAlbum(albumDto);
+    return ResponseEntity.noContent().build();
   }
 
   @Override
   public ResponseEntity<AlbumListDto> listAlbums(Integer page, Integer size) {
-    final PageDto pageDto = new PageDto().number(page).size(size).totalPages(1).totalElements(1L);
-    final AlbumListDto body = new AlbumListDto()
-        .data(Collections.singletonList(Fixtures.anAlbumDetailDto()))
-        .page(pageDto);
+    final Pageable pageable = PageRequest.of(page, size);
+    final Page<Album> albums = service.listAlbums(pageable);
 
-    return ResponseEntity.ok(body);
+    final List<AlbumDetailDto> dataDto = mapper.toDetailDto(albums.getContent());
+    final PageDto pageDto = new PageDto()
+        .number(albums.getNumber() + 1)
+        .size(albums.getSize())
+        .totalElements(albums.getTotalElements())
+        .totalPages(albums.getTotalPages());
+
+    return ResponseEntity.ok(new AlbumListDto()
+        .data(dataDto)
+        .page(pageDto));
   }
 }

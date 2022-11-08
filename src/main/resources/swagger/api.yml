@@ -168,7 +168,7 @@ paths:
           content:
             application/vnd.appkr.private.v1+json:
               schema:
-                $ref: '#/components/schemas/SongDetail'
+                $ref: '#/components/schemas/Song'
         '400':
           $ref: '#/components/responses/BadRequest'
         '401':

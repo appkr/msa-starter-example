@@ -3,6 +3,7 @@ package dev.appkr.example.application.port.out;
 import dev.appkr.example.domain.Album;
 import dev.appkr.example.domain.Singer;
 import dev.appkr.example.domain.Song;
+import java.time.OffsetDateTime;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.slf4j.Logger;
@@ -25,16 +26,14 @@ class AlbumRepositoryTest {
   @Test
   @Transactional
   public void curd() {
-    Singer singer = new Singer("김광석");
+    final Singer singer = new Singer("김광석");
     singerRepository.saveAndFlush(singer);
 
-    Album album = Album.builder()
-        .title("다시 부르기")
-        .build();
+    final Album album = new Album("다시 부르기", OffsetDateTime.parse("1993-03-01T09:00:00+09:00"));
     album.associateSinger(singer);
     albumRepository.saveAndFlush(album);
 
-    Song song = new Song("두 바퀴로 가는 자동차", "03:20");
+    final Song song = new Song("두 바퀴로 가는 자동차", "03:20");
     song.associateAlbum(album);
     song.associateSinger(singer);
     songRepository.saveAndFlush(song);

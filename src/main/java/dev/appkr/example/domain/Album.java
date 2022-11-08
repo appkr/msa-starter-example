@@ -1,6 +1,10 @@
 package dev.appkr.example.domain;
 
+import dev.appkr.example.config.Constants;
+import dev.appkr.example.support.Carbon;
 import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.time.ZoneId;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Entity;
@@ -11,7 +15,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,9 +42,10 @@ public class Album {
   @OneToMany(mappedBy = "album")
   private Set<Song> songs = new HashSet<>();
 
-  @Builder
-  public Album(String title) {
+  public Album(String title, OffsetDateTime publishedDate) {
     this.title = title;
+    final Instant published = Carbon.from(publishedDate, ZoneId.of(Constants.TIMEZONE_SEOUL)).toInstant();
+    markPublished(published);
   }
 
   public void associateSinger(Singer singer) {
