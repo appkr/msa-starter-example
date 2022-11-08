@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,7 +34,6 @@ public class Song {
   @ManyToOne
   private Singer singer;
 
-  @Builder
   public Song(String title, String playTime) {
     this.title = title;
     this.playTime = playTime;

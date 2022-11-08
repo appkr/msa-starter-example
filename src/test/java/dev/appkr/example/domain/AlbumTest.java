@@ -13,9 +13,7 @@ public class AlbumTest {
 
   @Test
   public void testAlbum() {
-    Singer singer = Singer.builder()
-        .name("김광석")
-        .build();
+    Singer singer = new Singer("김광석");
 
     Album album = Album.builder()
         .title("다시 부르기")
@@ -23,10 +21,7 @@ public class AlbumTest {
     album.markPublished(Carbon.parse("1993-03-01T09:00:00+09:00").toInstant());
     album.associateSinger(singer);
 
-    Song song = Song.builder()
-        .title("두 바퀴로 가는 자동차")
-        .playTime("03:20")
-        .build();
+    Song song = new Song("두 바퀴로 가는 자동차", "03:20");
     song.associateAlbum(album);
     song.associateSinger(singer);
 

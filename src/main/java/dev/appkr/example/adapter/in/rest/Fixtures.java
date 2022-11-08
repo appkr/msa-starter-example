@@ -1,5 +1,6 @@
 package dev.appkr.example.adapter.in.rest;
 
+import dev.appkr.example.domain.Singer;
 import dev.appkr.example.domain.Song;
 import dev.appkr.example.rest.AlbumDetailDto;
 import dev.appkr.example.rest.AlbumDto;
@@ -31,6 +32,10 @@ public class Fixtures {
     return new SingerDto()
         .singerId(1L)
         .name("김광석");
+  }
+
+  public static Singer aSingerEntity() {
+    return new Singer("김광석");
   }
 
   public static SongDetailDto aSongDetailDto() {

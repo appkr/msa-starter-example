@@ -25,9 +25,7 @@ class AlbumRepositoryTest {
   @Test
   @Transactional
   public void curd() {
-    Singer singer = Singer.builder()
-        .name("김광석")
-        .build();
+    Singer singer = new Singer("김광석");
     singerRepository.saveAndFlush(singer);
 
     Album album = Album.builder()
@@ -36,10 +34,7 @@ class AlbumRepositoryTest {
     album.associateSinger(singer);
     albumRepository.saveAndFlush(album);
 
-    Song song = Song.builder()
-        .title("두 바퀴로 가는 자동차")
-        .playTime("03:20")
-        .build();
+    Song song = new Song("두 바퀴로 가는 자동차", "03:20");
     song.associateAlbum(album);
     song.associateSinger(singer);
     songRepository.saveAndFlush(song);
