@@ -8,6 +8,7 @@ import dev.appkr.example.rest.AlbumDetailDto;
 import dev.appkr.example.rest.AlbumDto;
 import dev.appkr.example.rest.AlbumListDto;
 import dev.appkr.example.rest.PageDto;
+import dev.appkr.example.support.HeaderUtils;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -36,9 +37,9 @@ public class AlbumApiDelegateImpl implements AlbumApiDelegate {
   }
 
   @Override
-  public ResponseEntity<Void> createAlbum(AlbumDto albumDto) {
-    service.createAlbum(albumDto);
-    return ResponseEntity.noContent().build();
+  public ResponseEntity<Void> createAlbum(AlbumDto dto) {
+    final Album entity = service.createAlbum(dto);
+    return ResponseEntity.created(HeaderUtils.uri("/{param1}", entity.getId())).build();
   }
 
   @Override

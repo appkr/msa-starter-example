@@ -388,6 +388,11 @@ components:
 
     Created:
       description: Created
+      headers:
+        Location:
+          schema:
+            type: string
+            format: url
 
     Accepted:
       description: Accepted
